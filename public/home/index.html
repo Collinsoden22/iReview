@@ -1,0 +1,468 @@
+{% extends '../index.html' %}
+
+{% load static %}
+
+{% block body %}
+<section id="hero">
+    <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
+      <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+      <div class="carousel-inner" role="listbox">
+
+        <!-- Slide 1 -->
+        <div class="carousel-item active mt-2" style="background-image: url(public/assets/img/book-bg-library.jpeg)">
+          <div class="carousel-container p-3">
+            <div class="container">
+              <h2 class="animate__animated animate__fadeInDown">Top <span>Reviews</span></h2>
+              <p class="animate__animated animate__fadeInUp">
+                Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+              </p>
+              <a href="reviews?id=1" class="btn-get-started animate__animated animate__fadeInUp scrollto">View All Reviews</a>
+            </div>
+            <div class="col-md-6">
+                <p class="animate__animated animate__fadeInUp">
+                    <img src="{% static 'assets/img/slide/slide-1.jpg' %}" class="rounded rounded-2" width="auto" height="300px">
+                </p>
+                </div>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="carousel-item" style="background-image: url(public/assets/img/book-bg-nature.jpg)">
+          <div class="carousel-container">
+            <div class="container">
+              <h2 class="animate__animated animate__fadeInDown">iReview</h2> <!-- Type this text -->
+              <div class="animate__animated animate__fadeInUp text-primary text-center p-2 mt-3">
+                <div class="col-md-12 d-flex">
+                    <picture class="col-md-6">
+                        <img src="{% static 'assets/img/reviewer/team-1.jpg' %}" class="rounded rounded-2" width="300px" height="auto">
+                    </picture>
+                    <p class="justify-content-center col-md-6 border outline-dark p-5 d-inline-block">
+                      <span class="text-light btn btn-outline-info fw-bold"> Collins Oden </span> <br />
+                      <span>
+                          Collins Oden is a Software Engineer at ...
+                        </span>
+                        <span class="social d-inline-flex text-center m-5">
+                          <a href="https://twitter.com/collinsoden1" class="p-2 twitter text-primary"><i class="bi bi-twitter"></i></a>
+                          <a href="https://facebook.com/officialcollinsoden" class="p-2 facebook text-primary"><i class="bi bi-facebook"></i></a>
+                          <a href="https://instagram.com/collinsoden" class="p-2 instagram text-danger"><i class="bi bi-instagram"></i></a>
+                          <a href="https://github.com/collinsoden22" class="p-2 google-plus text-info"><i class="bi bi-github"></i></a>
+                          <a href="https://linkedin.com/in/collinsoden" class="p-2 linkedin text-primary"><i class="bi bi-linkedin"></i></a>
+
+                        </span>
+                    </p>
+                </div>
+            </div>
+              <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">View Profile</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="carousel-item" style="background-image: url(public/assets/img/book-bg-pink.jpeg)">
+          <div class="carousel-container p-3">
+            <div class="container">
+              <h2 class="animate__animated animate__fadeInDown">Top <span>Reviews</span></h2>
+              <p class="animate__animated animate__fadeInUp">
+                Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+              </p>
+              <a href="reviews?id=1" class="btn-get-started animate__animated animate__fadeInUp scrollto">View All Reviews</a>
+            </div>
+            <div class="col-md-6">
+                <p class="animate__animated animate__fadeInUp">
+                    <img src="{% static 'assets/img/slide/slide-1.jpg'%}" class="rounded rounded-2" width="auto" height="300px">
+                </p>
+                </div>
+          </div>
+        </div>
+      </div>
+
+      <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+      </a>
+      <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+        <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+      </a>
+    </div>
+  </section>
+
+  <main id="main">
+    <section id="cta" class="cta mt-5">
+      <div class="container" data-aos="zoom-in">
+        <div class="text-center">
+          <h3>Advertisement</h3>
+          <p>
+            Place your advert here.
+          </p>
+          <a class="cta-btn" href="mailto:admin@ireview.procodes.tech">Contact iReview</a>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="featured" class="about">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Featured in iReview</h2>
+          <p>Featured</p>
+        </div>
+
+        <div class="row content">
+          <div class="col-lg-6 col-md-6">
+            <div class="align-items-stretch video-box h-100" style='background-image: url("{{ STATIC_URL }} assets/img/why-us.jpg"); height: 100%; width: auto;' data-aos="zoom-in" data-aos-delay="100">
+              <a href="#" class="venobox play-btn mb-4" data-vbtype="video" data-autoplay="true"></a>
+            </div>
+            </div>
+          <div class="col-lg-6 pt-4 pt-lg-0 justify-content-center text-center vertical-center">
+            <p class="p-5">
+              Love and Light, a book written by Mr Easy is very interesting and I'd like to read it.
+              Love and Light, a book written by Mr Easy is very interesting and I'd like to read it.
+              Love and Light, a book written by Mr Easy is very interesting and I'd like to read it.
+            </p>
+            <div class="d-inline-flex justify-content-center">
+            <div class="d-md-flex align-items-md-stretch p-2">
+              <div class="count-box">
+                <i class="bi bi-emoji-heart-eyes text-success"></i>
+                <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
+              </div>
+            </div>
+
+            <div class="d-md-flex align-items-md-stretch p-2">
+              <div class="count-box">
+                <i class="bi bi-emoji-smile text-info"></i>
+                <span data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="1" class="purecounter"></span>
+              </div>
+            </div>
+            <div class="d-md-flex align-items-md-stretch p-2">
+              <div class="count-box">
+                <i class="bi bi-emoji-neutral text-warning"></i>
+                <span data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="1" class="purecounter"></span>
+              </div>
+            </div>
+            <div class="d-md-flex align-items-md-stretch p-2">
+              <div class="count-box">
+                <i class="bi bi-emoji-angry text-danger"></i>
+                <span data-purecounter-start="0" data-purecounter-end="12" data-purecounter-duration="1" class="purecounter"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="justify-content-center text-center">
+          <a href="#" class="mt-5 btn-learn-more col-md-2">Get Book</a>
+        </div>
+      </div>
+
+      </div>
+    </section>
+
+    <hr class="h-50">
+    <section id="request" class="mt-5 section-bg">
+      <div class="container" data-aos="fade-up">
+        <div class="section-title">
+          <h2>Suggestion Box</h2>
+          <p>Request a review</p>
+        </div>
+            <div class="m-5">
+              <p>
+                Do you want to know what people think about your favourite book? Request for a review so we could reach.
+                The iReview community will tell you what they think.
+              </p>
+
+              <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                <div class="row">
+                  <div class="col-md-6 form-group">
+                    <input type="text" name="name" class="form-control" id="name" placeholder="Enter your Full Name" required>
+                  </div>
+                  <div class="col-md-6 form-group mt-3 mt-md-0">
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Enter Your Email" required>
+                  </div>
+                </div>
+                <div class="form-group mt-3">
+                  <input type="text" class="form-control" name="title" id="title" placeholder="Enter Book Title" required>
+                </div>
+                <div class="form-group mt-3">
+                  <input type="text" class="form-control" name="author" id="author" placeholder="Enter Book Author" required>
+                </div>
+                <div class="my-3">
+                  <div class="text-danger">We could not complete your request, please try again</div>
+                  <div class="text-success">Your request has been submitted to iReview. Thank you!</div>
+                </div>
+                <div class="text-center"><button type="submit" class="btn btn-learn-more">Request Review</button></div>
+              </form>
+          </div>
+      </div>
+    </section>
+
+    <!-- ======= Testimonials Section ======= -->
+    <section id="testimonials" class="testimonials section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Testimonials</h2>
+          <p>Testimonials</p>
+        </div>
+
+        <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+              <div class="testimonial-wrap">
+                <div class="testimonial-item">
+                  <img src="{% static 'assets/img/testimonials/testimonials-1.jpg' %}" class="testimonial-img" alt="">
+                  <h3>Saul Goodman</h3>
+                  <h4>Ceo &amp; Founder</h4>
+                  <p>
+                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                    Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                  </p>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-wrap">
+                <div class="testimonial-item">
+                  <img src="{% static 'assets/img/testimonials/testimonials-2.jpg' %}" class="testimonial-img" alt="">
+                  <h3>Sara Wilsson</h3>
+                  <h4>Designer</h4>
+                  <p>
+                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                    Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
+                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                  </p>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-wrap">
+                <div class="testimonial-item">
+                  <img src="{% static 'assets/img/testimonials/testimonials-3.jpg' %}" class="testimonial-img" alt="">
+                  <h3>Jena Karlis</h3>
+                  <h4>Store Owner</h4>
+                  <p>
+                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                    Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
+                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                  </p>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-wrap">
+                <div class="testimonial-item">
+                  <img src="{% static 'assets/img/testimonials/testimonials-4.jpg' %}" class="testimonial-img" alt="">
+                  <h3>Matt Brandon</h3>
+                  <h4>Freelancer</h4>
+                  <p>
+                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                    Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
+                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                  </p>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-wrap">
+                <div class="testimonial-item">
+                  <img src="{% static 'assets/img/testimonials/testimonials-5.jpg' %}" class="testimonial-img" alt="">
+                  <h3>John Larson</h3>
+                  <h4>Entrepreneur</h4>
+                  <p>
+                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                    Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
+                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                  </p>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+    </section><!-- End Testimonials Section -->
+
+    <section id="books" class="portfolio">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Books</h2>
+          <p>
+            Available Books
+            <span class="float-end btn-learn-more"><a href=""> View All</a></span>
+          </p>
+        </div>
+
+
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <img src="{% static 'assets/img/portfolio/portfolio-1.jpg' %}" class="img-fluid rounded-3" alt="">
+            <div class="portfolio-info">
+              <h4>Compromise</h4>
+              <p>Judith TedX</p>
+              <a href=" {% static 'assets/img/portfolio/portfolio-1.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Review Book"><i class="bi bi-list-stars"></i></a>
+              <a href="#" class="details-link" title="Find Book"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <img src="{% static 'assets/img/portfolio/portfolio-2.jpg' %}" class="img-fluid rounded-3" alt="">
+            <div class="portfolio-info">
+              <h4>Things fall apart</h4>
+              <p>Chinua Achebe</p>
+              <a href=" {% static 'assets/img/portfolio/portfolio-2.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Review Book"><i class="bi bi-list-stars"></i></a>
+              <a href="#" class="details-link" title="Find Book"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <img src="{% static 'assets/img/portfolio/portfolio-3.jpg' %}" class="img-fluid rounded-3" alt="">
+            <div class="portfolio-info">
+              <h4>Love and the Moon</h4>
+              <p>John Doe</p>
+              <a href=" {% static 'assets/img/portfolio/portfolio-3.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Review Book"><i class="bi bi-list-stars"></i></a>
+              <a href="#" class="details-link" title="Find Book"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <section id="team" class="team section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Reviewers</h2>
+          <p>Meet our top reviewers</p>
+        </div>
+
+        <div class="row">
+          <div class="col-xl-3 col-lg-4 col-md-6">
+            <div class="member" data-aos="zoom-in" data-aos-delay="100">
+              <img src="{% static 'assets/img/reviewer/team-1.jpg' %}" class="img-fluid" alt="">
+              <div class="member-info">
+                <div class="member-info-content">
+                  <h4>Walter White</h4>
+                  <span>Chief Executive Officer</span>
+                </div>
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xl-3 col-lg-4 col-md-6" data-wow-delay="0.1s">
+            <div class="member" data-aos="zoom-in" data-aos-delay="200">
+              <img src="{% static 'assets/img/reviewer/team-2.jpg' %}" class="img-fluid" alt="">
+              <div class="member-info">
+                <div class="member-info-content">
+                  <h4>Sarah Jhonson</h4>
+                  <span>Product Manager</span>
+                </div>
+                <div class="social">
+                  <a href="#"><i class="bi bi-twitter"></i></a>
+                  <a href="#"><i class="bi bi-facebook"></i></a>
+                  <a href="#"><i class="bi bi-instagram"></i></a>
+                  <a href="#"><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xl-3 col-lg-4 col-md-6" data-wow-delay="0.2s">
+            <div class="member" data-aos="zoom-in" data-aos-delay="300">
+              <img src="{% static 'assets/img/reviewer/team-3.jpg' %}" class="img-fluid" alt="">
+              <div class="member-info">
+                <div class="member-info-content">
+                  <h4>William Anderson</h4>
+                  <span>CTO</span>
+                </div>
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xl-3 col-lg-4 col-md-6" data-wow-delay="0.3s">
+            <div class="member" data-aos="zoom-in" data-aos-delay="400">
+              <img src="{% static 'assets/img/reviewer/team-4.jpg' %}" class="img-fluid" alt="">
+              <div class="member-info">
+                <div class="member-info-content">
+                  <h4>Amanda Jepson</h4>
+                  <span>Accountant</span>
+                </div>
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Team Section -->
+
+
+    <section id="faq" class="services faq">
+      <div class="container mt-5" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>What do you want to know? </h2>
+          <p>FAQ</p>
+        </div>
+
+        <div class="accordion-list">
+          <ul>
+            <li>
+              <a data-bs-toggle="collapse" class="collapse" data-bs-target="#accordion-list-1"><span>01</span> Non consectetur a erat nam at lectus urna duis? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <div id="accordion-list-1" class="collapse show" data-bs-parent=".accordion-list">
+                <p>
+                  Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.
+                </p>
+              </div>
+            </li>
+
+            <li>
+              <a data-bs-toggle="collapse" data-bs-target="#accordion-list-2" class="collapsed"><span>02</span> Feugiat scelerisque varius morbi enim nunc? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <div id="accordion-list-2" class="collapse" data-bs-parent=".accordion-list">
+                <p>
+                  Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
+                </p>
+              </div>
+            </li>
+
+            <li>
+              <a data-bs-toggle="collapse" data-bs-target="#accordion-list-3" class="collapsed"><span>03</span> Dolor sit amet consectetur adipiscing elit? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <div id="accordion-list-3" class="collapse" data-bs-parent=".accordion-list">
+                <p>
+                  Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis
+                </p>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </section><!-- End Services Section -->
+
+    {% endblock %}
