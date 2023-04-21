@@ -12,8 +12,15 @@ def community_page_view(request, *args, **kwargs):
     return render(request, "home/community.html", {})
 
 
+
 def register_page_view(request, *args, **kwargs):
     return render(request, "registration/register.html", {})
+
+def profile_page_view(request, *args, **kwargs):
+    return render(request, "users/profile.html", {})
+
+def edit_profile_page_view(request, *args, **kwargs):
+    return render(request, "users/edit.html", {})
 
 def register_user(request, *args, **kwargs):
     email = request.POST['email'];

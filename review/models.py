@@ -11,5 +11,12 @@ class User(models.Model):
 
 class Person(models.Model):
     username = models.CharField(max_length=30)
-    bio = models.CharField(max_length=255, NULL=True)
-    profile_image = models.CharField(max_length=255, NULL=True)
+    bio = models.CharField(max_length=255)
+    profile_image = models.CharField(max_length=255)
+
+class Socials(models.Model):
+    username = models.CharField(max_length=30)
+    facebook = models.CharField(max_length=30)
+    instagram = models.CharField(max_length=30)
+    twitter = models.CharField(max_length=30)
+    linkedin = models.CharField(max_length=30)

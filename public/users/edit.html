@@ -1,0 +1,52 @@
+
+{% extends '../index.html' %}
+
+{% load static %}
+
+{% block body %}
+
+<div class="container mt-5">
+    <div class="p-5">
+
+        <form method="post" class="form-control p-5 p">
+            <h2 class="text-center">
+                EDIT <span class="text-danger"> PROFILE </span>
+            <h2>
+            {% csrf_token %}
+            {% comment %} {{ form.as_p }} {% endcomment %}
+            <p>
+                <label for="id_firstname">Email:</label>
+                <input type="text" class="form-control mt-2" autocapitalize="none" value="example@gmail.com" disabled="" autocomplete="username" maxlength="150" id="id_username">
+            </p>
+            <p>
+                <label for="id_firstname">First Name:</label>
+                <input type="text" class="form-control mt-2" name="firstName" autocapitalize="none" autocomplete="username" maxlength="150" required="" id="id_username">
+            </p>
+            <p>
+                <label for="id_password">Last Name:</label>
+                <input type="text" class="form-control mt-2" name="lastName" required="" id="id_lastname">
+            </p>
+            <p>
+                <label for="id_password">Bio:</label>
+                <textarea type="text" class="form-control mt-2" name="bio" required="" id="id_bio"> </textarea>
+            </p>
+            <p>
+                <label for="id_password">Phone Number:</label>
+                <input type="text" class="form-control mt-2" name="phoneNo" required="" id="id_phonenumber]">
+            </p>
+            <p>
+                <label for="socials">SOCIALS:</label>
+                <input type="text" class="form-control mt-2 col-3" name="facebook" required="" id="id_facebook" placeholder="Facebook Username">
+                <input type="text" class="form-control mt-2 col-3" name="instagram" required="" id="id_instagram" placeholder="Instagram Username">
+                <input type="text" class="form-control mt-2 col-3" name="twitter" required="" id="id_twitter" placeholder="Twitter Username">
+                <input type="text" class="form-control mt-2 col-3" name="linkedin" required="" id="id_linkedin" placeholder="Linkedin Username">
+            </p>
+            <button type="submit" class="btn btn-learn-more">
+                Update
+            </button>
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}
