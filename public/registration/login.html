@@ -8,17 +8,24 @@
 <div class="container mt-5">
     <div class="p-5">
 
-        <form method="post" class="form-control p-5 p">
+        <form method="post" class="form-control p-5 p" action="{{BASE_URL }} /process-login">
             <h2 class="text-center"> Login to <span class="text-danger">i</span>Review<h2>
             <h6 class="text-center"> Welcome to <span class="text-danger">i</span>Review, please login<h6>
-            {% csrf_token %}
-            {% comment %} {{ form.as_p }} {% endcomment %}
-            <p>
-                <label for="id_username">Username:</label>
-                <input type="text" class="form-control mt-2" name="username" autofocus="" autocapitalize="none" autocomplete="username" maxlength="150" required="" id="id_username">
-            <p>
-                <label for="id_password">Password:</label>
-                <input type="password" class="form-control mt-2" name="password" autocomplete="current-password" required="" id="id_password">
+                {% comment %} {{ form.as_p }} {% endcomment %}
+                <p class="text-danger error-field non-field error-message">
+                    {% if error %}
+                        {{ message }}
+                    {% elif id %}
+                        {{ username }}
+                    {% endif %}
+                </p>
+                {% csrf_token %}
+                <p>
+                    <label for="{{ form.id_username }}">Username:</label>
+                    <input type="text" class="form-control mt-2" name="username" autofocus="" autocapitalize="none" autocomplete="username" maxlength="150" required="" id="id_username">
+                <p>
+                    <label for="{{ form.id_password }}">Password:</label>
+                    <input type="password" class="form-control mt-2" name="password" autocomplete="current-password" required="" id="id_password">
             </p>
             </p>
             <button type="submit" class="btn btn-learn-more">

@@ -7,6 +7,11 @@
             <h2 class="text-center"> <span class="text-danger">i</span>Review Registration<h2>
                     <h6 class="text-center"> Register on <span class="text-danger">i</span>
                         Register to access millions of book reviews and collections.<h6>
+                            <p class="text-danger">
+                                {% if message %}
+                                    {{ error }}
+                                {% endif %}
+                            </p>
                             {% csrf_token %}
                             {% comment %} {{ form.as_p }} {% endcomment %}
                             <p>
@@ -15,15 +20,15 @@
                             </p>
                             <p>
                                 <label for="id_email">Email Address:</label>
-                                <input type="email" class="form-control mt-2" name="email"  autocapitalize="none" autocomplete="username" maxlength="150" required="" id="id_username">
+                                <input type="email" class="form-control mt-2" name="email"  autocapitalize="none" autocomplete="email" maxlength="150" required="" id="id_email">
                             </p>
                             <p>
                                 <label for="id_firstname">First Name:</label>
-                                <input type="text" class="form-control mt-2" name="firstName"  autocapitalize="none" autocomplete="username" maxlength="150" required="" id="id_username">
+                                <input type="text" class="form-control mt-2" name="firstName"  autocapitalize="none" autocomplete="firstname" maxlength="150" required="" id="id_firstname">
                             </p>
                             <p>
                                 <label for="id_lastname">Last Name:</label>
-                                <input type="text" class="form-control mt-2" name="lastName"  autocapitalize="none" autocomplete="username" maxlength="150" required="" id="id_username">
+                                <input type="text" class="form-control mt-2" name="lastName"  autocapitalize="none" autocomplete="lastname" maxlength="150" required="" id="id_lastname">
                             </p>
                             <p>
                                 <label for="id_password">Password:</label>

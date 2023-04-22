@@ -136,3 +136,7 @@ STATICFILES_DIRS = (
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = "/"
+
+SESSION_COOKIE_AGE = 600  # Set to 10 minutes. Default: "1209600(2 weeks)"
+
+SESSION_SAVE_EVERY_REQUEST = True

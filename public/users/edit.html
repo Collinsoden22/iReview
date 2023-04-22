@@ -8,38 +8,48 @@
 <div class="container mt-5">
     <div class="p-5">
 
-        <form method="post" class="form-control p-5 p">
+        <form method="post" class="form-control p-5 p" action="../update-profile/" enctype="multipart/form-data">
             <h2 class="text-center">
                 EDIT <span class="text-danger"> PROFILE </span>
             <h2>
+                {% if "Error" in message %}
+                <p class="text-danger text-center dismissible">{{ message }}<p/>
+              {% else %}
+                <p class="text-success text-center"> {{ message }} </p>
+              {% endif %}
+
             {% csrf_token %}
             {% comment %} {{ form.as_p }} {% endcomment %}
             <p>
-                <label for="id_firstname">Email:</label>
-                <input type="text" class="form-control mt-2" autocapitalize="none" value="example@gmail.com" disabled="" autocomplete="username" maxlength="150" id="id_username">
+                <label for="id_email">Email:</label>
+                <input type="text" class="form-control mt-2" autocapitalize="none" value="{{ user.email }}" disabled="" autocomplete="username" maxlength="150" id="id_username">
             </p>
             <p>
-                <label for="id_firstname">First Name:</label>
-                <input type="text" class="form-control mt-2" name="firstName" autocapitalize="none" autocomplete="username" maxlength="150" required="" id="id_username">
+                <label for="id_first_name">First Name:</label>
+                <input type="text" class="form-control mt-2" name="firstName" autocapitalize="none" value="{{ user.first_name }}" autocomplete="username" maxlength="150" required="" id="id_username">
             </p>
             <p>
-                <label for="id_password">Last Name:</label>
-                <input type="text" class="form-control mt-2" name="lastName" required="" id="id_lastname">
+                <label for="id_last_name">Last Name:</label>
+                <input type="text" class="form-control mt-2" name="lastName" required="" value="{{ user.last_name }}" id="id_lastname">
             </p>
             <p>
-                <label for="id_password">Bio:</label>
-                <textarea type="text" class="form-control mt-2" name="bio" required="" id="id_bio"> </textarea>
+                <label for="id_bio">Bio:</label>
+                <textarea type="text" class="form-control mt-2" name="bio" required="" id="id_bio">{{ bio }} </textarea>
             </p>
             <p>
-                <label for="id_password">Phone Number:</label>
-                <input type="text" class="form-control mt-2" name="phoneNo" required="" id="id_phonenumber]">
+                <label for="id_phone_number">Phone Number:</label>
+                <input type="text" class="form-control mt-2" name="phoneNo" required="" id="id_phonenumber" value="{{ phone_number }}">
+            </p>
+            <p>
+                <label for="id_profile_picture">Profile Picture:</label>
+                <input type="file" class="form-control mt-2" name="profileImage" value="Null.ff" id="id_profile_picture">
             </p>
             <p>
                 <label for="socials">SOCIALS:</label>
-                <input type="text" class="form-control mt-2 col-3" name="facebook" required="" id="id_facebook" placeholder="Facebook Username">
-                <input type="text" class="form-control mt-2 col-3" name="instagram" required="" id="id_instagram" placeholder="Instagram Username">
-                <input type="text" class="form-control mt-2 col-3" name="twitter" required="" id="id_twitter" placeholder="Twitter Username">
-                <input type="text" class="form-control mt-2 col-3" name="linkedin" required="" id="id_linkedin" placeholder="Linkedin Username">
+                <input type="text" class="form-control mt-2 col-3" name="facebook" required="" id="id_facebook" value="{{ socials.facebook }}">
+                <input type="text" class="form-control mt-2 col-3" name="instagram" required="" id="id_instagram" value="{{ socials.instagram }}">
+                <input type="text" class="form-control mt-2 col-3" name="twitter" required="" id="id_twitter" value="{{ socials.twitter }}">
+                <input type="text" class="form-control mt-2 col-3" name="linkedin" required="" id="id_linkedin" value="{{ socials.linkedin }}">
             </p>
             <button type="submit" class="btn btn-learn-more">
                 Update

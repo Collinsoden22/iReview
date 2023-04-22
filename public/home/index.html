@@ -27,14 +27,14 @@
         </div>
 
         <!-- Slide 2 -->
-        <div class="carousel-item" style="background-image: url(public/assets/img/book-bg-nature.jpg)">
+        <div class="carousel-item" style="background-image: url({% static 'assets/img/book-bg-nature.jpg' %} )">
           <div class="carousel-container">
             <div class="container">
               <h2 class="animate__animated animate__fadeInDown">iReview</h2> <!-- Type this text -->
               <div class="animate__animated animate__fadeInUp text-primary text-center p-2 mt-3">
                 <div class="col-md-12 d-flex">
-                    <picture class="col-md-6">
-                        <img src="{% static 'assets/img/reviewer/team-1.jpg' %}" class="rounded rounded-2" width="300px" height="auto">
+                    <picture class="col-md-6 w-50">
+                      <iframe src="https://graph.facebook.com/officialcollinsoden/picture" class="rounded rounded-2 w-100" width="600px" height="auto"></iframe>
                     </picture>
                     <p class="justify-content-center col-md-6 border outline-dark p-5 d-inline-block">
                       <span class="text-light btn btn-outline-info fw-bold"> Collins Oden </span> <br />
@@ -168,7 +168,7 @@
                 The iReview community will tell you what they think.
               </p>
 
-              <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+              <form action="#" method="post" role="form" class="php-email-form">
                 <div class="row">
                   <div class="col-md-6 form-group">
                     <input type="text" name="name" class="form-control" id="name" placeholder="Enter your Full Name" required>
@@ -184,8 +184,11 @@
                   <input type="text" class="form-control" name="author" id="author" placeholder="Enter Book Author" required>
                 </div>
                 <div class="my-3">
-                  <div class="text-danger">We could not complete your request, please try again</div>
-                  <div class="text-success">Your request has been submitted to iReview. Thank you!</div>
+                  {% if "Error" in message %}
+                  <p class="text-danger">{{ message }}<p/>
+                {% else %}
+                  <p class="text-success"> {{ message }} </p>
+                {% endif %}
                 </div>
                 <div class="text-center"><button type="submit" class="btn btn-learn-more">Request Review</button></div>
               </form>
@@ -312,21 +315,21 @@
           </div>
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <img src="{% static 'assets/img/portfolio/portfolio-2.jpg' %}" class="img-fluid rounded-3" alt="">
+            <img src="{% static 'assets/img/portfolio/portfolio-1.jpg' %}" class="img-fluid rounded-3" alt="">
             <div class="portfolio-info">
               <h4>Things fall apart</h4>
               <p>Chinua Achebe</p>
-              <a href=" {% static 'assets/img/portfolio/portfolio-2.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Review Book"><i class="bi bi-list-stars"></i></a>
+              <a href=" {% static 'assets/img/portfolio/portfolio-1.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Review Book"><i class="bi bi-list-stars"></i></a>
               <a href="#" class="details-link" title="Find Book"><i class="bx bx-link"></i></a>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <img src="{% static 'assets/img/portfolio/portfolio-3.jpg' %}" class="img-fluid rounded-3" alt="">
+            <img src="{% static 'assets/img/portfolio/portfolio-1.jpg' %}" class="img-fluid rounded-3" alt="">
             <div class="portfolio-info">
               <h4>Love and the Moon</h4>
               <p>John Doe</p>
-              <a href=" {% static 'assets/img/portfolio/portfolio-3.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Review Book"><i class="bi bi-list-stars"></i></a>
+              <a href=" {% static 'assets/img/portfolio/portfolio-1.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Review Book"><i class="bi bi-list-stars"></i></a>
               <a href="#" class="details-link" title="Find Book"><i class="bx bx-link"></i></a>
             </div>
           </div>
@@ -347,11 +350,11 @@
         <div class="row">
           <div class="col-xl-3 col-lg-4 col-md-6">
             <div class="member" data-aos="zoom-in" data-aos-delay="100">
-              <img src="{% static 'assets/img/reviewer/team-1.jpg' %}" class="img-fluid" alt="">
+              <img src="{% static 'assets/img/reviewer/Collins.jpg' %}" class="img-fluid" alt="">
               <div class="member-info">
                 <div class="member-info-content">
-                  <h4>Walter White</h4>
-                  <span>Chief Executive Officer</span>
+                  <h4>John Doe</h4>
+                  <span>Reviewer</span>
                 </div>
                 <div class="social">
                   <a href=""><i class="bi bi-twitter"></i></a>
@@ -365,11 +368,11 @@
 
           <div class="col-xl-3 col-lg-4 col-md-6" data-wow-delay="0.1s">
             <div class="member" data-aos="zoom-in" data-aos-delay="200">
-              <img src="{% static 'assets/img/reviewer/team-2.jpg' %}" class="img-fluid" alt="">
+              <img src="{% static 'assets/img/reviewer/Collins.jpg' %}" class="img-fluid" alt="">
               <div class="member-info">
                 <div class="member-info-content">
-                  <h4>Sarah Jhonson</h4>
-                  <span>Product Manager</span>
+                  <h4>Collins Oden</h4>
+                  <span>Reviewer</span>
                 </div>
                 <div class="social">
                   <a href="#"><i class="bi bi-twitter"></i></a>
@@ -383,11 +386,11 @@
 
           <div class="col-xl-3 col-lg-4 col-md-6" data-wow-delay="0.2s">
             <div class="member" data-aos="zoom-in" data-aos-delay="300">
-              <img src="{% static 'assets/img/reviewer/team-3.jpg' %}" class="img-fluid" alt="">
+              <img src="{% static 'assets/img/reviewer/Collins.jpg' %}" class="img-fluid" alt="">
               <div class="member-info">
                 <div class="member-info-content">
-                  <h4>William Anderson</h4>
-                  <span>CTO</span>
+                  <h4>John Doe</h4>
+                  <span>Reviewer</span>
                 </div>
                 <div class="social">
                   <a href=""><i class="bi bi-twitter"></i></a>
@@ -401,11 +404,11 @@
 
           <div class="col-xl-3 col-lg-4 col-md-6" data-wow-delay="0.3s">
             <div class="member" data-aos="zoom-in" data-aos-delay="400">
-              <img src="{% static 'assets/img/reviewer/team-4.jpg' %}" class="img-fluid" alt="">
+              <img src="{% static 'assets/img/reviewer/Collins.jpg' %}" class="img-fluid" alt="">
               <div class="member-info">
                 <div class="member-info-content">
-                  <h4>Amanda Jepson</h4>
-                  <span>Accountant</span>
+                  <h4>Collins Oden</h4>
+                  <span>Reviewer</span>
                 </div>
                 <div class="social">
                   <a href=""><i class="bi bi-twitter"></i></a>

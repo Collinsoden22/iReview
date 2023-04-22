@@ -1,0 +1,90 @@
+{% extends '../index.html' %}
+
+{% load static %}
+
+{% block body %}
+
+
+
+<hr class="h-100"/>
+    <section id="books" class="portfolio mt-5">
+      <div class="container" data-aos="fade-up">
+        <div class="section-title">
+          <h2>Search Results</h2>
+          <p>
+            Books for Review
+            {% comment %} <span class="float-end btn-learn-more"><a href=""> View All</a></span> {% endcomment %}
+          </p>
+        </div>
+        <p class="text-center text-danger"> Search result for '<i>{{ query|title }}</i>'. Only the first 20 books are returned. if you can't find the book you need, send us a review request </p>
+        <hr class="h-25">
+
+
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+            {% if books %}
+            {% for book in books %}
+                <div class="col-lg-4 col-md-4 portfolio-item filter-app">
+                    <img src="https://covers.openlibrary.org/b/isbn/{{book.isbn|first|default:"9780831742102"}}-L.jpg" class="img-fluid rounded-3 w-100" height="300px" alt="{{ book.title }}">
+                    <div class="portfolio-info">
+                        <h4 class="col-9">{{ book.title }}</h4>
+                        <p class="col-9">{{ book.author_name|join:", " }} <li>{{ book.first_publish_year }}</li></p>
+                        <a href="{{ BASE_URL }}/review?q={{ book.isbn|first}}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Review Book">
+                            <i class="bi bi-list-stars"></i></a>
+                        <a href="https://openlibrary.org/works/{{book.isbn|first}}/{{book.title }}" target="_blank" class="details-link" title="Find Book"><i class="bx bx-link"></i></a>
+                    </div>
+                </div>
+                {% endfor %}
+                {% else %}
+                    <p class="text-center"> We could not find any book matching "{{ query|title }}" </p>
+                {% endif %}
+
+        </div>
+
+      </div>
+    </section>
+
+
+
+    <section id="faq" class="services faq">
+      <div class="container mt-5" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>What do you want to know? </h2>
+          <p>FAQ</p>
+        </div>
+
+        <div class="accordion-list">
+          <ul>
+            <li>
+              <a data-bs-toggle="collapse" class="collapse" data-bs-target="#accordion-list-1"><span>01</span> Non consectetur a erat nam at lectus urna duis? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <div id="accordion-list-1" class="collapse show" data-bs-parent=".accordion-list">
+                <p>
+                  Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.
+                </p>
+              </div>
+            </li>
+
+            <li>
+              <a data-bs-toggle="collapse" data-bs-target="#accordion-list-2" class="collapsed"><span>02</span> Feugiat scelerisque varius morbi enim nunc? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <div id="accordion-list-2" class="collapse" data-bs-parent=".accordion-list">
+                <p>
+                  Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
+                </p>
+              </div>
+            </li>
+
+            <li>
+              <a data-bs-toggle="collapse" data-bs-target="#accordion-list-3" class="collapsed"><span>03</span> Dolor sit amet consectetur adipiscing elit? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <div id="accordion-list-3" class="collapse" data-bs-parent=".accordion-list">
+                <p>
+                  Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis
+                </p>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </section><!-- End Services Section -->
+
+    {% endblock %}
