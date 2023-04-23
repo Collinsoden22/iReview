@@ -24,6 +24,18 @@ def search_books(title):
     return books
 
 
+def get_book_with_isbn(isbn):
+    # Construct the API query URL
+    query_url = f"https://openlibrary.org/search.json?isbn={isbn}"
+    # Send a GET request to the API
+    response = requests.get(query_url)
+    # Parse the JSON response
+    data = response.json()
+    # Extract the list of matching books from the response
+    books = data["docs"]
+
+    return books
+
 def home_page_view(request, *args, **kwargs):
     return render(request, "home/index.html", {})
 
@@ -231,3 +243,11 @@ def search_book_page(request, *args, **kwargs):
         "books": books
     }
     return render(request, "home/review.html", context)
+
+
+def make_review_page(request, *args, **kwargs):
+    isbn = request.GET.get('q')
+
+    book_details = get_book_with_isbn(isbn)
+
+    return render(request, "home/review.html", "")

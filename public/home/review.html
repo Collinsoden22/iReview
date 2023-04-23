@@ -31,9 +31,10 @@
                         <h4 class="col-9"> {{ book.title }} </h4>
                         <p class="col-9 d-flex">
                           {{ book.author_name|join:", " }}
-                          <li>{{ book.first_publish_year }}</li>
+                          <li> {{ book.first_publish_year }} </li>
                         </p>
-                        <a href="{{ BASE_URL }}/review?q={{ book.isbn|first}}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Review Book">
+                        {% comment %} <a href="{{ BASE_URL }}/review?q={{ book.isbn|first}}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Review Book"> {% endcomment %}
+                          <a href="{{ BASE_URL }}/review?q={{ book.isbn|first}}" data-gallery="portfolioGallery" class="preview-link" title="Review Book">
                             <i class="bi bi-list-stars"></i></a>
                         <a href="https://openlibrary.org/works/{{book.isbn|first}}/{{book.title }}" target="_blank" class="details-link" title="Find Book">
                           <i class="bx bx-link"></i>
