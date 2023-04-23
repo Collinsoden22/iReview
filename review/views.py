@@ -14,7 +14,6 @@ import requests
 def search_books(title):
     # Construct the API query URL
     query_url = f"https://openlibrary.org/search.json?title={title}&limit=20"
-    print(query_url)
     # Send a GET request to the API
     response = requests.get(query_url)
     # Parse the JSON response
@@ -39,7 +38,6 @@ def register_page_view(request, *args, **kwargs):
 
 @login_required
 def profile_page_view(request, *args, **kwargs):
-    print(request.user.username)
     user_details = Person.objects.get(username=request.user.username)
     socials = Social.objects.get(username=request.user.username)
 
