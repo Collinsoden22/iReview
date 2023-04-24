@@ -17,16 +17,19 @@
         </div>
         <p class="text-center text-danger">
           Search result for '<i> {{ query|title }} </i>'.
-          Only the first 20 books are returned. if you can't find the book you need, send us a review request
+          Only the first 35 books are returned. if you can't find the book you need, send us a review request
         </p>
         <hr class="h-25">
 
-
         <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
-            {% if books %}
-            {% for book in books %}
-                <div class="col-lg-4 col-md-4 portfolio-item filter-app">
-                    <img src="https://covers.openlibrary.org/b/isbn/{{book.isbn|first|default:"9780831742102"}}-L.jpg" class="img-fluid rounded-3 w-100" height="300px" alt="{{ book.title }}">
+          {% if books %}
+          {% for book in books %}
+            {% comment %} <h4 class="col-9"> {{ book.key|striptags|cut:"/works/" }} </h4> {% endcomment %}
+                <div class="col-lg-4 col-md-4 portfolio-item filter-app p-2">
+                  <a href="{{ BASE_URL }}/review?q={{ book.cover_edition_key }}" class="border-3 border">
+                    <img src="https://covers.openlibrary.org/b/olid/{{ book.cover_edition_key }}-L.jpg" class="img-fluid rounded-3 w-100" height="300px" alt="{{ book.title }}">
+                    {% comment %} <img src="https://covers.openlibrary.org/b/isbn/{{book.isbn|first|default:"9780831742102"}}-L.jpg" class="img-fluid rounded-3 w-100" height="300px" alt="{{ book.title }}"> {% endcomment %}
+                  </a>
                     <div class="portfolio-info">
                         <h4 class="col-9"> {{ book.title }} </h4>
                         <p class="col-9 d-flex">
@@ -34,9 +37,10 @@
                           <li> {{ book.first_publish_year }} </li>
                         </p>
                         {% comment %} <a href="{{ BASE_URL }}/review?q={{ book.isbn|first}}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Review Book"> {% endcomment %}
-                          <a href="{{ BASE_URL }}/review?q={{ book.isbn|first}}" data-gallery="portfolioGallery" class="preview-link" title="Review Book">
-                            <i class="bi bi-list-stars"></i></a>
-                        <a href="https://openlibrary.org/works/{{book.isbn|first}}/{{book.title }}" target="_blank" class="details-link" title="Find Book">
+                          <a href="{{ BASE_URL }}/review?q={{ book.cover_edition_key }}" data-gallery="portfolioGallery" class="preview-link" title="Review Book">
+                            <i class="bi bi-list-stars"></i>
+                          </a>
+                        <a href="https://openlibrary.org/books/{{ book.cover_edition_key }}" target="_blank" class="details-link" title="Find Book">
                           <i class="bx bx-link"></i>
                         </a>
                     </div>

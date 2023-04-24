@@ -1,40 +1,55 @@
-from django.shortcuts import render, HttpResponse
-from .models import Person, Social
+from django.shortcuts import render, HttpResponse, HttpResponseRedirect
+from .models import Person, Social, Review
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 import os
-# from django.core.exceptions import DoesNotExist
+
 # Create your views here.
 
-# Search Book using title
 import requests
+
+# Search Book using title
 
 
 def search_books(title):
+    try:
+        # Construct the API query URL
+        query_url = f"https://openlibrary.org/search.json?title={title}&limit=35"
+        # Send a GET request to the API
+        response = requests.get(query_url)
+        # Parse the JSON response
+        data = response.json()
+        # Extract the list of matching books from the response
+        books = data["docs"]
+
+        return books
+    except Exception as e:
+        return None
+
+
+# Search Book using ISBN
+def get_book_with_edition(edition):
     # Construct the API query URL
-    query_url = f"https://openlibrary.org/search.json?title={title}&limit=20"
+    query_url = f"https://openlibrary.org/books/{edition}.json"
     # Send a GET request to the API
     response = requests.get(query_url)
     # Parse the JSON response
     data = response.json()
-    # Extract the list of matching books from the response
-    books = data["docs"]
+    return data
 
-    return books
+    # Search Book using ISBN
 
 
-def get_book_with_isbn(isbn):
+def get_author_name(edition):
     # Construct the API query URL
-    query_url = f"https://openlibrary.org/search.json?isbn={isbn}"
+    query_url = f"https://openlibrary.org/authors/{edition}.json"
     # Send a GET request to the API
     response = requests.get(query_url)
     # Parse the JSON response
     data = response.json()
-    # Extract the list of matching books from the response
-    books = data["docs"]
+    return data
 
-    return books
 
 def home_page_view(request, *args, **kwargs):
     return render(request, "home/index.html", {})
@@ -140,7 +155,8 @@ def process_login_view(request, *args, **kwargs):
             "id": user.id,
             "username": user.username,
         }
-        return render(request, "home/index.html", data)
+        # return render(request, "home/index.html", data)
+        return HttpResponseRedirect("../")
     else:
         data = {
             "error": "Could not authenticate user",
@@ -245,9 +261,46 @@ def search_book_page(request, *args, **kwargs):
     return render(request, "home/review.html", context)
 
 
+@login_required
 def make_review_page(request, *args, **kwargs):
-    isbn = request.GET.get('q')
+    edition = request.GET.get('q')
 
-    book_details = get_book_with_isbn(isbn)
+    book_details = get_book_with_edition(edition)
+    author = get_author_name(edition)
+    try:
+        all_reviews = Review.objects.filter(edition=edition)
+    except:
+        all_reviews = None
+        pass
 
-    return render(request, "home/review.html", "")
+    if all_reviews is not None:
+        all_reviews = all_reviews
+
+    data = {
+        "book": book_details,
+        "edition": edition,
+        "author": author,
+        "reviews": all_reviews
+    }
+
+    return render(request, "home/view.html", data)
+
+
+def save_review(request, *args, **kwargs):
+    username = request.user.username
+    review = request.POST['reviewNote']
+    rating = request.POST['rate']
+    title = request.POST['title']
+    edition = request.POST['edition']
+    authors = request.POST['author']
+
+    try:
+        reviews = Review.objects.create(
+            username=username, edition=edition, title=title, author=authors, review_text=review, rate=rating
+        )
+        reviews.save()
+
+        return HttpResponseRedirect(f"../review?q={edition}")
+    except Exception as e:
+        err = "Could not complete request", e
+        return HttpResponseRedirect(f"../review?err={err}&q={edition}")

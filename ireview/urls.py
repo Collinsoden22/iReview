@@ -24,6 +24,8 @@ urlpatterns = [
     path('update-profile/', update_profile),
     path('process-login', process_login_view),
     path('search/', search_book_page),
+    path('send-review/', save_review),
+    path('review/', make_review_page),
     path('register/', register_page_view),
     path('create-account/', register_user),
     path('accounts/logout/', logout_user),

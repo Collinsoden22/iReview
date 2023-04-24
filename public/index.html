@@ -63,13 +63,15 @@
           <li><a class="nav-link scrollto" href="{{BASE_URL}}/#request">Request a Review</a></li>
           <li><a class="nav-link scrollto" href={{ BASE_DIR }}"/community">Community</a></li>
           <li><a class="nav-link scrollto" href={{ BASE_DIR }}"#faq">FAQ</a></li>
-          <li class="dropdown"><a href="#"><span></span> <i class="bi bi-person"></i></a>
+          <li class="dropdown">
+            <a href="#"><span></span> <i class="bi bi-person"></i>
+            </a>
             <ul>
               {% if user.is_authenticated %}
                 <li><a href={{ BASE_DIR }}"/profile">Profile</a></li>
                 <li><a href={{ BASE_DIR }}"/accounts/logout">Logout</a></li>
               {% else %}
-                <li><a href={{ BASE_DIR }}"/accounts/login">Login</a></li>
+                <li><a href={{ BASE_URL }}"/accounts/login">Login</a></li>
                 <li><a href={{ BASE_DIR }}"/register">Register</a></li>
               {% endif %}
             </ul>

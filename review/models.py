@@ -29,8 +29,9 @@ class Social(models.Model):
 
 class Review(models.Model):
     username = models.CharField(max_length=30)
-    isbn = models.CharField(max_length=32)
-    title = models.CharField(max_length=64)
-    author = models.CharField(max_length=46)
+    edition = models.CharField(max_length=32)
+    title = models.CharField(max_length=255)
+    author = models.CharField(max_length=46, null=True)
     review_text = models.TextField()
+    rate = models.TextField(max_length=2)
     review_date = models.DateField(default=date.today)

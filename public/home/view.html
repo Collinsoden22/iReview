@@ -1,0 +1,138 @@
+{% extends '../index.html' %}
+
+{% load static %}
+
+{% block body %}
+
+
+
+<hr class="h-100"/>
+    <section id="books" class="portfolio mt-5">
+      <div class="container" data-aos="fade-up">
+        <div class="section-title">
+          <h2>Submit a Review</h2>
+          <p>
+            Reviewing "{{ book.title }} ({{ book.publish_date }})"
+        </p>
+    </div>
+    <p class="text-center text-danger">
+        </p>
+        <hr class="h-25">
+
+<div class="card">
+  <div class="card-body col-md-12 col-sm-12 d-md-flex p-2">
+        <picture class="col-md-6 col-sm-12">
+            <div class="portfolio-item filter-app m-2">
+                <a href="https://openlibrary.org/books/{{ edition }}">
+                  <img src="https://covers.openlibrary.org/b/olid/{{ edition }}-L.jpg" class="img-fluid w-100 h-100 border border-2" alt="{{ book.title }}">
+                </a>
+            </div>
+        </picture>
+          <div class="mb-3 col-md-6 col-sm-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">{{ book.title }} - {{ author.by_statement }} </h4>
+                    <p class="card-text">Published in {{ book.publish_date }}</p>
+                    <p class="card-text">Introduction: {{ book.first_sentence.value|striptags|default:"Not available for this book." }}..</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><b> Number of Pages: </b> {{book.number_of_pages|default:"Unavailable"}}</li>
+                    <li class="list-group-item"><b> Edition: </b> {{book.edition_name|default:"Unknown"}}</li>
+                    <li class="list-group-item"><b> Last Revision: </b> {{ book.latest_revision}} </li>
+                </ul>
+            </div>
+
+            <form class="card-body" method="post" action="{{BASE_URL}}/send-review/">
+            {% csrf_token %}
+            <input  type="hidden" name="title" id="id_title" value="{{ book.title }}">
+            <input  type="hidden" name="edition" id="id_edition" value="{{ edition }}">
+            <input  type="hidden" name="author" id="id_author" value="{{ author.by_statement }}">
+            <div class="form-group mt-3">
+                <label for="" class="form-label">Write Review</label> <br>
+                <small id="helpId" class="text-muted text-secondary">What do you think about {{book.title}}?</small>
+                <textarea name="reviewNote" id="id_review_note" class="form-control" aria-describedby="helpId"> </textarea>
+            </div>
+            <div class="text-center mt-5">
+                <small id="helpId1" class="text-muted">How happy would you be recommending this book to a friend?</small>
+            </div>
+            <div class="d-inline-flex col-sm-12 justify-content-center mt--2">
+                <label class="form-check-label m-4">
+                    <input class="form-check-input" type="radio" name="rate" id="radio_0" value="0">
+                    <i class="bi bi-emoji-angry text-danger"></i>
+                </label>
+                <label class="form-check-label m-4">
+                    <input class="form-check-input" type="radio" name="rate" id="radio_1" value="1">
+                    <i class="bi bi-emoji-frown text-dark"></i>
+                </label>
+                <label class="form-check-label m-4">
+                    <input class="form-check-input" type="radio" name="rate" id="radio_2" value="2">
+                    <i class="bi bi-emoji-neutral text-primary"></i>
+                </label>
+                <label class="form-check-label m-4">
+                    <input class="form-check-input" type="radio" name="rate" id="radio_3" value="3">
+                    <i class="bi bi-emoji-smile text-info"></i>
+                </label>
+                <label class="form-check-label m-4">
+                    <input class="form-check-input" type="radio" name="rate" id="radio_4" value="4">
+                    <i class="bi bi-emoji-heart-eyes text-success"></i>
+                </label>
+            </div>
+            <div class="float-end mt-3">
+                <button type="submit" class="btn btn-learn-more">Submit Review</button>
+            </div>
+        </form>
+    </div>
+  </div>
+</div>
+
+      </div>
+    </section>
+
+
+
+    <section id="faq" class="services faq">
+      <div class="container mt-5" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Read Top Reviews for this book </h2>
+          <p>REVIEWS</p>
+        </div>
+
+        <div class="accordion-list">
+          <ul>
+            {% if reviews %}
+            {% for value in reviews %}
+            <li>
+              <a data-bs-toggle="collapse" class="collapse" data-bs-target="#accordion-list-{{forloop.counter}}">
+                <span>0{{forloop.counter}}</span>
+                    Review from {{ value.username|title }}
+                    <i class="bx bx-chevron-down icon-show"></i>
+                    <i class="bx bx-chevron-up icon-close"></i>
+            </a>
+              <div id="accordion-list-{{ forloop.counter }}" class="collapse show" data-bs-parent=".accordion-list">
+                <p>
+                  {{ value.review_text }} &nbsp;
+                  <br>
+                  <div class="text-end">
+                   <small class="text-muted"> {{ value.review_date }}</small>
+                  </div>
+                  <hr>
+                   {% if value.rating is 4 %}
+                        <i class="bi bi-emoji-heart-eyes text-success"></i>
+                {% endif %}
+                </p>
+              </div>
+            </li>
+            {% endfor %}
+
+            {% else %}
+                <li class="text-center">
+                    No review has been submitted for this book.
+                </li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </section><!-- End Services Section -->
+
+    {% endblock %}
