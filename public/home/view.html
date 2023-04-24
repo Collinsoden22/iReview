@@ -114,7 +114,7 @@
                   {{ value.review_text }} &nbsp;
                   <br>
                   <div class="text-end">
-                   <small class="text-muted"> {{ value.review_date }}</small>
+                   <small class="text-muted"> {{ value.review_date }} </small>
                   </div>
                   <hr>
                    {% if value.rating is 4 %}
@@ -124,7 +124,6 @@
               </div>
             </li>
             {% endfor %}
-
             {% else %}
                 <li class="text-center">
                     No review has been submitted for this book.
