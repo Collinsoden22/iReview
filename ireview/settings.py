@@ -32,7 +32,10 @@ SECRET_KEY = os.environ['APP_SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "http://collinsoden.pythonanywhere.com/",
+    "http://localhost"
+]
 
 
 # Application definition
