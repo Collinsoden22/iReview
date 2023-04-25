@@ -33,7 +33,7 @@ SECRET_KEY = os.environ['APP_SECRET_KEY']
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    "http://collinsoden.pythonanywhere.com/",
+    "collinsoden.pythonanywhere.com",
     "http://localhost"
 ]
 
