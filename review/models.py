@@ -1,9 +1,6 @@
 from django.db import models
 from datetime import date
 
-# Create your models here.
-
-
 class User(models.Model):
     username = models.CharField(max_length=30, unique=True)
     email = models.CharField(max_length=45, unique=True)
@@ -11,13 +8,11 @@ class User(models.Model):
     last_name = models.CharField(max_length=32)
     password = models.CharField(max_length=32)
 
-
 class Person(models.Model):
     username = models.CharField(max_length=30, unique=True)
     bio = models.CharField(max_length=255, null=True)
     profile_image = models.CharField(max_length=255, null=True)
     phone_number = models.CharField(max_length=12, null=True)
-
 
 class Social(models.Model):
     username = models.CharField(max_length=30, unique=True)
@@ -25,7 +20,6 @@ class Social(models.Model):
     instagram = models.CharField(max_length=30, null=True)
     twitter = models.CharField(max_length=30, null=True)
     linkedin = models.CharField(max_length=30, null=True)
-
 
 class Review(models.Model):
     username = models.CharField(max_length=30)

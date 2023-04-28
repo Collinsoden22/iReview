@@ -46,10 +46,18 @@
             </p>
             <p>
                 <label for="socials">SOCIALS:</label>
-                <input type="text" class="form-control mt-2 col-3" name="facebook" required="" id="id_facebook" value="{{ socials.facebook }}">
-                <input type="text" class="form-control mt-2 col-3" name="instagram" required="" id="id_instagram" value="{{ socials.instagram }}">
-                <input type="text" class="form-control mt-2 col-3" name="twitter" required="" id="id_twitter" value="{{ socials.twitter }}">
-                <input type="text" class="form-control mt-2 col-3" name="linkedin" required="" id="id_linkedin" value="{{ socials.linkedin }}">
+
+                {% if socials.facebook is not None %}
+                    <input type="text" class="form-control mt-2 col-3" name="facebook" required="" id="id_facebook" value="{{ socials.facebook }}">
+                    <input type="text" class="form-control mt-2 col-3" name="instagram" required="" id="id_instagram" value="{{ socials.instagram }}">
+                    <input type="text" class="form-control mt-2 col-3" name="twitter" required="" id="id_twitter" value="{{ socials.twitter }}">
+                    <input type="text" class="form-control mt-2 col-3" name="linkedin" required="" id="id_linkedin" value="{{ socials.linkedin }}">
+                {% else %}
+                    <input type="text" class="form-control mt-2 col-3" name="facebook" required="" id="id_facebook" placeholder="Facebook Username">
+                    <input type="text" class="form-control mt-2 col-3" name="instagram" required="" id="id_instagram" placeholder="Instagram Username">
+                    <input type="text" class="form-control mt-2 col-3" name="twitter" required="" id="id_twitter" placeholder="Twitter Username">
+                    <input type="text" class="form-control mt-2 col-3" name="linkedin" required="" id="id_linkedin" placeholder="Linkedin Username">
+                {% endif %}
             </p>
             <button type="submit" class="btn btn-learn-more">
                 Update
