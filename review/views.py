@@ -22,7 +22,6 @@ def search_books(title):
     except Exception as e:
         return None
 
-
 # Search Book using ISBN
 def get_book_with_edition(edition):
     # Construct the API query URL
@@ -32,9 +31,7 @@ def get_book_with_edition(edition):
     # Parse the JSON response
     data = response.json()
     return data
-
     # Search Book using ISBN
-
 
 def get_author_name(edition):
     # Construct the API query URL
@@ -44,7 +41,6 @@ def get_author_name(edition):
     # Parse the JSON response
     data = response.json()
     return data
-
 
 def home_page_view(request, *args, **kwargs):
     return render(request, "home/index.html", {})
