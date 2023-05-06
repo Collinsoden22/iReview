@@ -7,7 +7,6 @@ import os
 import requests
 
 
-
 def search_books(title):
     try:
         # Construct the API query URL
@@ -241,7 +240,6 @@ def update_profile(request, *args, **kwargs):
         "socials": socials
     }
     return render(request, "users/profile.html", data)
-
 
 def search_book_page(request, *args, **kwargs):
     query = request.GET.get("q")
